@@ -27,6 +27,14 @@ Instrutor: [Guilherme Carvalho]
     - [Comentários](#comentários)
     - [Conversão de Tipos](#conversão-de-tipos)
     - [Funções de Entrada e Saída](#funções-de-entrada-e-saída)
+  - [Tipos de Operadores](#tipos-de-operadores)
+    - [Operadores Aritméticos](#operadores-aritméticos)
+      - [Ordem de Precedência](#ordem-de-precedência)
+    - [Operadores de Comparação](#operadores-de-comparação)
+    - [Operadores de Atribuição](#operadores-de-atribuição)
+    - [Operadores Lógicos](#operadores-lógicos)
+    - [Operadores de Identidade](#operadores-de-identidade)
+    - [Operadores de Associação](#operadores-de-associação)
 
 ## Ambiente de Desenvolvimento e Primeiros Passos com Python
 
@@ -248,6 +256,189 @@ A função `print()` é usada para exibir dados na tela. Ela recebe um argumento
 ```python
 >>> print('Hello', 'World', sep=', ', end='!')
 Hello, World!
+```
+
+## Tipos de Operadores
+
+### Operadores Aritméticos
+
+| Operador | Descrição           |
+| -------- | ------------------- |
+| `+`      | Adição              |
+| `-`      | Subtração           |
+| `*`      | Multiplicação       |
+| `/`      | Divisão             |
+| `//`     | Divisão inteira     |
+| `%`      | Resto da divisão    |
+| `**`     | Exponenciação       |
+| `()`     | Alterar precedência |
+
+#### Ordem de Precedência
+
+Assim como na matemática, em Python, a ordem de precedência dos operadores aritméticos é a seguinte:
+
+1. Parênteses
+2. Exponenciação
+3. Multiplicação, Divisão, Divisão Inteira e Resto da Divisão
+4. Adição e Subtração
+
+```python
+>>> 5 + 3 * 2
+11
+>>> (5 + 3) * 2
+16
+>>> 10 ** 2 * 2
+200
+>>> 10 ** (2 * 2)
+10000
+``` 
+
+Quando dois operadores possuem a mesma precedência, a ordem de execução é da esquerda para a direita.
+
+```python
+>>> 10 / 2 * 3
+15.0
+>>> 2 * 3 / 10
+0.6
+```
+
+### Operadores de Comparação
+
+| Operador | Descrição          |
+| -------- | ------------------ |
+| `==`     | Igual              |
+| `!=`     | Diferente          |
+| `>`      | Maior que          |
+| `<`      | Menor que          |
+| `>=`     | Maior ou igual que |
+| `<=`     | Menor ou igual que |
+
+```python
+>>> 10 == 10
+True
+>>> 10 != 10
+False
+>>> 10 > 10
+False
+>>> 10 < 10
+False
+>>> 10 >= 10
+True
+>>> 10 <= 10
+True
+```
+
+### Operadores de Atribuição
+
+| Operador | Descrição                     |
+| -------- | ----------------------------- |
+| `=`      | Atribuição                    |
+| `+=`     | Adição e atribuição           |
+| `-=`     | Subtração e atribuição        |
+| `*=`     | Multiplicação e atribuição    |
+| `/=`     | Divisão e atribuição          |
+| `//=`    | Divisão inteira e atribuição  |
+| `%=`     | Resto da divisão e atribuição |
+| `**=`    | Exponenciação e atribuição    |
+
+```python
+>>> x = 10
+>>> x += 1
+>>> x
+11
+>>> x -= 1
+>>> x
+10
+>>> x *= 2
+>>> x
+20
+>>> x /= 2
+>>> x
+10.0
+>>> x //= 2
+>>> x
+5.0
+>>> x %= 2
+```
+
+### Operadores Lógicos
+
+| Operador | Descrição |
+| -------- | --------- |
+| `and`    | E         |
+| `or`     | Ou        |
+| `not`    | Não       |
+
+```python
+>>> True and True
+True
+>>> True and False
+False
+>>> False and False
+False
+>>> True or True
+True
+>>> True or False
+True
+>>> False or False
+False
+>>> not True
+False
+>>> not False
+True
+```
+
+Outros exemplos:
+
+```python
+>>> 10 > 5 and 10 > 15
+False
+>>> 10 > 5 or 10 > 15
+True
+>>> not 10 > 5
+False
+```
+
+
+### Operadores de Identidade
+
+| Operador | Descrição |
+| -------- | --------- |
+| `is`     | É         |
+| `is not` | Não é     |
+
+```python
+>>> a = 10
+>>> b = 10
+>>> a is b
+True
+>>> 10 is not 10
+False
+>>> id(a)
+140723983796240
+>>> id(b)
+140723983796240
+```
+
+
+### Operadores de Associação
+
+| Operador | Descrição |
+| -------- | --------- |
+| `in`     | Em        |
+| `not in` | Não em    |
+
+```python
+>>> classes = ['Python', 'Java', 'C#']
+>>> 'Python' in classes
+True
+>>> fruits = ['Apple', 'Banana', 'Orange']
+>>> 'Melon' not in fruits
+True
+>>> 'a' in 'aeiou'
+True
+>>> 'z' in 'aeiou'
+False
 ```
 
 
