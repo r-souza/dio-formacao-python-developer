@@ -35,6 +35,16 @@ Instrutor: [Guilherme Carvalho]
     - [Operadores Lógicos](#operadores-lógicos)
     - [Operadores de Identidade](#operadores-de-identidade)
     - [Operadores de Associação](#operadores-de-associação)
+  - [Estruturas Condicionais e de Repetição em Python](#estruturas-condicionais-e-de-repetição-em-python)
+    - [Indentação e blocos](#indentação-e-blocos)
+    - [Estruturas Condicionais](#estruturas-condicionais)
+      - [`if`, `elif` e `else`](#if-elif-e-else)
+      - [`if` aninhado](#if-aninhado)
+      - [`if` ternário](#if-ternário)
+    - [Estruturas de Repetição](#estruturas-de-repetição)
+      - [`for`](#for)
+        - [`range`](#range)
+      - [`while`](#while)
 
 ## Ambiente de Desenvolvimento e Primeiros Passos com Python
 
@@ -441,8 +451,163 @@ True
 False
 ```
 
+## Estruturas Condicionais e de Repetição em Python
+
+### Indentação e blocos
+
+Identar código é uma forma de manter o código fonte mais legível e manutenível. Em Python, a indentação é obrigatória e é usada para definir blocos de código. Um bloco de código é um conjunto de instruções que são executadas em sequência.
+
+```python
+if True:
+    print('Hello')
+    print('World')
+```
+
+No exemplo acima, o bloco de código "dentro" do `if` é executado apenas se a condição for verdadeira. Se a condição for falsa, o bloco de código não é executado.
+
+Existe uma convenção em Python, que defina as boas práticas para escrita de código na linguagem. Nesse documento é indicado utilizar 4 espaços para cada nível de indentação. Mais detalhes podem ser encontrados na [PEP 8][PEP 8 - Indentation].
+
+### Estruturas Condicionais
+
+São estruturas que permitem executar um bloco de código apenas se determinadas expressões lógicas forem atendidas.
+
+#### `if`, `elif` e `else`
+
+Em Python existe a estrutura `if`, `elif` e `else`. O `elif` é uma abreviação de `else if`. O `else` é executado caso nenhuma das condições anteriores seja verdadeira.
+
+```python
+if True:
+    print('Hello')
+elif False:
+    print('World')
+else:
+    print('!')
+``` 
+
+#### `if` aninhado
+
+É possível aninhar `if`s, ou seja, colocar um `if` dentro de outro `if`. Nesse caso, o `else` do `if` interno pertence ao `if` interno.
+
+```python
+if True:
+    if False:
+        print('Hello')
+    else:
+        print('World')
+else:
+    print('!')
+```
+
+#### `if` ternário
+
+Um `if` ternário é uma forma de escrever um `if` em apenas uma linha. Ele é composto por três partes, a primeira é parte é o retorno caso a expressão retorne `True`, a segunda parte é a expressão a ser avaliada e a terceira parte é o retorno caso a expressão retorne `False`.
+
+```python
+>>> data = 10
+>>> 'Hello' if data > 5 else 'World'
+'Hello'
+
+>>> data = 4
+>>> 'Hello' if data > 5 else 'World'
+'World'
+```
+
+### Estruturas de Repetição
+
+São estruturas que permitem executar um bloco de código um determinado número de vezes. Esse número pode ser previamente conhecido ou pode ser determinado por uma expressão lógica.
+
+#### `for`
+
+O `for` é uma estrutura de repetição que permite iterar sobre uma sequência de valores. Essa sequência pode ser uma lista, uma tupla, um dicionário, um conjunto ou uma string.
+
+```python
+>>> for i in [1, 2, 3]:
+...     print(i)
+...
+1
+2
+3
+```
+
+```python
+text = input('Enter a text: ')
+VOVELS = 'aeiou'
+
+for letter in text:
+    if letter.lower() in VOVELS:
+        print(letter, end=" ")
+else:
+    print()
+    print('All letters were processed')
+
+# Enter a text: Hello World
+# e o o
+# All letters were processed
+```
+
+##### `range`
+
+A função `range` retorna uma sequência de números. Essa sequência pode ser usada para iterar sobre ela. A função `range` pode receber até três parâmetros, o primeiro é o valor inicial, o segundo é o valor final e o terceiro é o passo.
+
+```python
+>>> for i in range(10):
+...     print(i, end=" ")
+...
+0 1 2 3 4 5 6 7 8 9
+```
+
+Abaixo temos um exemplo de uso da função `range` para gerar uma tabuada do 1 ao 10.
+
+```python
+>>> for i in range(1, 11):
+...     for j in range(1, 11):
+...         print(f'{i} x {j} = {i * j}')
+...    print()
+...
+1 x 1 = 1
+1 x 2 = 2 
+...
+1 x 10 = 10
+
+2 x 1 = 2
+2 x 2 = 4
+...
+2 x 10 = 20
+...
+```
+
+#### `while`
+
+O `while` é uma estrutura de repetição que permite executar um bloco de código enquanto uma expressão lógica for verdadeira.
+
+```python
+>>> i = 0
+>>> while i < 10:
+...     print(i, end=" ")
+...     i += 1
+...
+0 1 2 3 4 5 6 7 8 9
+```
+
+```python
+while True:
+    name = input('Enter your name: ')
+    if name == 'exit':
+        break
+    
+    print(f'Hello {name}')
+
+# Enter your name: John
+# Hello John
+# Enter your name: Mary
+# Hello Mary
+# Enter your name: exit
+```
+
+
 
 [DIO]: https://dio.me
 [Formação Python Developer]: https://web.digitalinnovation.one/track/formacao-python-developer
 [Guilherme Carvalho]: https://github.com/guicarvalho
 [PEP 8]: https://www.python.org/dev/peps/pep-0008/#naming-conventions
+[PEP 8 - Indentation]: https://www.python.org/dev/peps/pep-0008/#indentation
