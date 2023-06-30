@@ -45,6 +45,13 @@ Instrutor: [Guilherme Carvalho]
       - [`for`](#for)
         - [`range`](#range)
       - [`while`](#while)
+  - [Manipulando Strings com Python](#manipulando-strings-com-python)
+    - [Métodos úteis](#métodos-úteis)
+    - [Interpolação de Variáveis](#interpolação-de-variáveis)
+      - [`format`](#format)
+      - [f-strings](#f-strings)
+    - [Fatiamento de Strings](#fatiamento-de-strings)
+    - [Strings Multilinhas](#strings-multilinhas)
 
 ## Ambiente de Desenvolvimento e Primeiros Passos com Python
 
@@ -604,7 +611,144 @@ while True:
 # Enter your name: exit
 ```
 
+## Manipulando Strings com Python
 
+A classe String do Python é famosa por ser rica em métodos e possuir uma interface muito fácil de trabalhar.
+
+### Métodos úteis
+
+| Metodo       | Descrição                                                                                  |
+| ------------ | ------------------------------------------------------------------------------------------ |
+| `upper`      | Retorna uma cópia da string com todas as letras maiúsculas                                 |
+| `lower`      | Retorna uma cópia da string com todas as letras minúsculas                                 |
+| `capitalize` | Retorna uma cópia da string com a primeira letra maiúscula                                 |
+| `title`      | Retorna uma cópia da string com a primeira letra de cada palavra maiúscula                 |
+| `strip`      | Retorna uma cópia da string sem os espaços em branco no início e no fim                    |
+| `lstrip`     | Retorna uma cópia da string sem os espaços em branco no início                             |
+| `rstrip`     | Retorna uma cópia da string sem os espaços em branco no fim                                |
+| `center`     | Retorna uma cópia da string centralizada em um determinado número de espaços ou caracteres |
+| `join`       | Retorna uma string que é a concatenação dos elementos de uma sequência                     |
+| `count`      | Retorna o número de ocorrências de uma substring em uma string                             |
+| `startswith` | Retorna `True` se a string começar com uma substring                                       |
+| `endswith`   | Retorna `True` se a string terminar com uma substring                                      |
+| `split`      | Retorna uma lista de substrings separadas por um delimitador                               |
+| `replace`    | Retorna uma cópia da string substituindo uma substring por outra                           |
+| `find`       | Retorna o índice da primeira ocorrência de uma substring                                   |
+| `index`      | Retorna o índice da primeira ocorrência de uma substring, caso não encontre gera um erro   |
+
+Exemplos de uso dos métodos acima:
+
+```python
+>>> 'hello world'.upper()
+'HELLO WORLD'
+
+>>> 'Hello World'.lower()
+'hello world'
+
+>>> 'hello world'.capitalize()
+'Hello world'
+
+>>> 'hello world'.title()
+'Hello World'
+
+>>> '   hello world   '.strip()
+'hello world'
+
+>>> '   hello world   '.lstrip()
+'hello world   '
+
+>>> '   hello world   '.rstrip()
+'   hello world'
+
+>>> 'hello world'.center(20, '#')
+'#####hello world####'
+
+>>> ' '.join('hello world')
+'h e l l o   w o r l d'
+
+>>> 'hello world'.count('l')
+3
+
+>>> 'hello world'.startswith('hello')
+True
+
+>>> 'hello world'.endswith('world')
+True
+
+>>> 'hello world'.split()
+['hello', 'world']
+
+>>> 'hello world'.replace('world', 'python')
+'hello python'
+
+>>> 'hello world'.find('world')
+6
+
+>>> 'hello world'.index('world')
+6
+```
+
+### Interpolação de Variáveis
+
+Em Python podemos interpolar variáveis em strings de duas formas, a primeira é utilizando o método `format` e a segunda é utilizando f-strings.
+
+#### `format`
+
+```python
+>>> 'Hello {}'.format('World')
+'Hello World'
+```
+
+#### f-strings
+
+```python
+>>> name = 'World'
+>>> f'Hello {name}'
+'Hello World'
+```
+
+É possível formatar o valor de uma variável dentro de uma f-string, para isso basta colocar `:` após o nome da variável e especificar o tipo de formatação.
+
+```python
+>>> number = 3.141592653589793
+>>> f'Pi = {number:.2f}'
+'Pi = 3.14'
+``` 
+
+### Fatiamento de Strings
+
+Em Python podemos fatiar uma string utilizando a sintaxe `string[inicio:fim:passo]`. Onde `inicio` é o índice inicial, `fim` é o índice final e `passo` é o passo da iteração.
+
+```python
+>>> 'Hello World'[2:5]
+'llo'
+
+>>> 'Hello World'[6:]
+'World'
+
+>>> 'Hello World'[:5]
+'Hello'
+
+>>> 'Hello World'[::2]
+'HloWrd'
+
+>>> 'Hello World'[::-1]
+'dlroW olleH'
+```
+
+### Strings Multilinhas
+
+Em Python podemos criar strings multilinhas utilizando aspas triplas. Essas aspas podem ser simples ou duplas.
+
+```python
+>>> """Hello
+... World"""
+'Hello\nWorld'
+
+>>> '''Hello
+... World'''
+'Hello\nWorld'
+```
 
 [DIO]: https://dio.me
 [Formação Python Developer]: https://web.digitalinnovation.one/track/formacao-python-developer
