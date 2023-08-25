@@ -19,6 +19,7 @@ Modele seu banco de dados com a ferramenta do Sqlalchemy e crie aplicações ain
 ## Conteúdo da Formação
 
 - [Fundamentos de Python](fundamentos-python)
+- [Aprendendo Estruturas de Dados com Python](estruturas-de-dados-python)
 
 ## Mais informações
 
